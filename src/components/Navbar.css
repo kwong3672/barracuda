@@ -1,0 +1,10 @@
+.navbar ul {
+  list-style-type: none;
+  display: inline-flex;
+  justify-content: flex-start;
+}
+
+.navbar .active {
+  background-color: blue;
+  color: red; 
+}
