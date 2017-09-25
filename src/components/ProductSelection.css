@@ -1,0 +1,59 @@
+.product-container label, input, select {
+  display: flex;
+}
+
+.product-container label {
+  padding-top: 7px;
+}
+
+.product-container {
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-bottom-style: dashed;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 16px;
+}
+
+.product-selection-container {
+  display: block;
+  padding: 10px 100px 10px 0;
+}
+
+.product-container select {
+  width: 250px;
+  padding: 5px 0;
+}
+
+.product-container input {
+  width: 30px;
+  text-align: center;
+}
+
+.product-quantity-container {
+  padding: 10px 50px 10px 0;
+}
+
+.product-price-container {
+  padding: 10px 50px 10px 0;
+}
+
+
+
+.product-delete {
+  margin-top: 30px;
+  margin-right: 50px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 60px;
+  height: 25px;
+}
+
+.selection-header {
+  padding: 10px 0;
+  font-weight: bold;
+}
+

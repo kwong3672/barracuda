@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import './App.css';
 
-import SelectProductsHeader from './components/SelectProductsHeader';
+import Header from './components/Header';
 import Navbar from './components/Navbar';
 import OrderForm from './containers/OrderForm';
-import OrderConfirmation from './components/OrderConfirmation';
+import OrderConfirmation from './containers/OrderConfirmation';
 import store from './store';
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <SelectProductsHeader />
+            <Header />
             <Navbar />
             <Route exact path="/" component={OrderForm} />
             <Route path="/order_confirmation" component={OrderConfirmation} />

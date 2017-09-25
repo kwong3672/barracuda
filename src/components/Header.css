@@ -1,0 +1,11 @@
+.header .title {
+  color: #4098d7;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.header .p {
+  color: #222;
+  font-size: 16px;
+  font-weight: 300;
+}
