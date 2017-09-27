@@ -61,6 +61,7 @@ class OrderForm extends Component {
     this.props.orderFormActions('SELECT_MODEL', payload);
   }
 
+  // Checks input for valid number and saves to state if valid and return an error message if invalid
   handleInput(e, idx) {
     let quantity = e.target.value;
     const payload = {
@@ -77,9 +78,9 @@ class OrderForm extends Component {
     }
   }
 
+  // Deletes order from state
   handleDelete(idx) {
-    const payload = idx;
-    this.props.orderFormActions('DELETE_PRODUCT', payload);
+    this.props.orderFormActions('DELETE_PRODUCT', idx);
   }
 
 
@@ -87,13 +88,8 @@ class OrderForm extends Component {
     this.props.orderFormActions('ADD_PRODUCT', null);
   }
 
-  calcTotalPrice() {
-
-  }
-
-
+  // Map through number of items being ordered and displays a product selection component for each
   render() {
-    const that = this;
     return (
       <div className="order-form">
         {Object.keys(this.props.order).map((key, i) => {
@@ -102,24 +98,24 @@ class OrderForm extends Component {
               key={key} 
               idx={key} 
               data={data}
+              deploymentOptions={this.props.order[key].deploymentOptions}
+              deploymentOptionSelected={this.props.order[key].deploymentOptionSelected}
               handleSelectProduct={this.handleSelectProduct.bind(this)}
               handleSelectDeploymentOption={this.handleSelectDeploymentOption.bind(this)}
               handleSelectModel={this.handleSelectModel.bind(this)}
               handleInput={this.handleInput.bind(this)}
               handleDelete={this.handleDelete.bind(this)}
-              deploymentOptions={this.props.order[key].deploymentOptions}
               modelOptions={this.props.order[key].modelOptions}
-              deploymentOptionSelected={this.props.order[key].deploymentOptionSelected}
-              productSelected={this.props.order[key].productSelected}
               modelSelected={this.props.order[key].modelSelected}
-              quantity={this.props.order[key].quantity}
               orderCount={this.props.orderCount}
+              productSelected={this.props.order[key].productSelected}
+              quantity={this.props.order[key].quantity}
               i={i} />
           );
         })}
         <Footer totalOrderPrice={Object.keys(this.props.order).reduce((acc, key) => {
-            const price = that.props.order[key].modelSelected.model_price || 0;
-            acc = acc + that.props.order[key].quantity * price;
+            const price = this.props.order[key].modelSelected.model_price || 0;
+            acc = acc + this.props.order[key].quantity * price;
             return acc;
         }, 0)}
                 handleAddProduct={this.handleAddProduct.bind(this)}

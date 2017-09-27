@@ -1,5 +1,8 @@
 import React from 'react';
 
+// Component that takes label, value and change handlers props
+// displays a formatted input tag with label
+// additional props can be passed in for styling 
 const Input = ({
   display,
   font,
@@ -9,13 +12,13 @@ const Input = ({
   label,
   textAlign,
   width,
-  value,
+  value
 }) => {
 
   const style = {
     display,
     input: {
-      font: "16px Helvetica",
+      font: font || "16px Helvetica",
       textAlign,
       width,
     }
