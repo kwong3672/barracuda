@@ -1,12 +1,13 @@
 import React from 'react';
-import Input from './Input';
+
 import Dropdown from './Dropdown';
+import Input from './Input';
 
 const BillingInfo = (props) => {
   const style = {
     display: "inline-flex",
-    width: "100%",
     padding: "30px 0",
+    width: "100%",
     col1: {
       width: "50%",
     },

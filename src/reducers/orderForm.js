@@ -24,15 +24,11 @@ const initialState = {
 }
 
 const enableNextButton = (state) => {
-  // debugger;
-  const enabled = Object.keys(state.order).reduce((enable, key) => {
+  return Object.keys(state.order).reduce((enable, key) => {
     const order = state.order[key];
     return !isNaN(order.productSelected.product_id) && !isNaN(order.deploymentOptionSelected.deployment_id) && !isNaN(order.modelSelected.model_id) && enable && !!order.quantity
   }, true)
-  console.log(enabled)
-  return enabled;
 }
-
 
 const orderFormReducers = (state = initialState, action) => {
   switch (action.type) { 

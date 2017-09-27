@@ -1,20 +1,23 @@
 import React from 'react';
 
 const Input = ({
+  display,
+  font,
   handleChange,
   idx,
+  inputFont,
   label,
-  value,
-  width,
-  display,
   textAlign,
+  width,
+  value,
 }) => {
 
   const style = {
     display,
     input: {
-      width,
+      font: "16px Helvetica",
       textAlign,
+      width,
     }
   }
 

@@ -2,19 +2,19 @@ import React from 'react';
 import Currency from 'react-currency-formatter';
 
 const Price = ({
-  value,
-  label,
+  color,
   display,
+  font,
+  label,
   labelColor,
   labelFont,
-  color,
-  font,
   margin,
+  value,
 }) => {
 
   const style = {
-    display,
     color,
+    display,
     font,
     margin,
     label: {

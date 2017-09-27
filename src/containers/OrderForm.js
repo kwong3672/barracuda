@@ -5,7 +5,6 @@ import data from '../data/purchase_form_data.json';
 import ProductSelection from '../components/ProductSelection';
 import Footer from '../components/Footer';
 import { orderFormActions } from '../actions/orderForm';
-import './OrderForm.css';
 
 class OrderForm extends Component {
 

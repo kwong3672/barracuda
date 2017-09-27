@@ -3,19 +3,18 @@ import React from 'react';
 const NumberedCircle = ({margin, border, size, color, value, backgroundColor, fontSize}) => {
 
   const style = {
-    width: size || "20px",
-    backgroundColor: backgroundColor || "gray",
-    height: size || "20px",
-    borderRadius: size || "20px",
-    display: "flex",
     alignItems: "center",
-    justifyContent: "center",
-    color: color || "#fff",
-    fontSize: fontSize || "14px",
+    backgroundColor: backgroundColor || "gray",
     border: border,
+    borderRadius: size || "20px",
+    color: color || "#fff",
+    display: "flex",
+    fontSize: fontSize || "14px",
+    height: size || "20px",
+    justifyContent: "center",
     margin: margin,
+    width: size || "20px",
   }
-  
 
   return (
     <div style={style}>{value}</div>

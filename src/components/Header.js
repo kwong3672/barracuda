@@ -17,7 +17,7 @@ const Header = ({children, title}) => {
       <p>{children}</p>
     </div>
   );
-}
+};
 
 
 export default Header;

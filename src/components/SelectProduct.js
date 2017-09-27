@@ -1,23 +1,23 @@
 import React from 'react';
+
 import Dropdown from './Dropdown';
 
 const SelectProduct = ({
-  idx,
-  handleSelectProduct,
   data,
-  productSelected,
-  handleSelectDeploymentOption,
   deploymentOptions,
   deploymentOptionSelected,
+  handleSelectDeploymentOption,
   handleSelectModel,
+  handleSelectProduct,
+  idx,
   modelOptions,
   modelSelected,
-
+  productSelected,
 }) => {
-
+  
   const style = {
     display: "block",
-  }
+  };
 
   return (  
     <div style={style}>
@@ -40,9 +40,6 @@ const SelectProduct = ({
         optionName={'deployment_name'} 
         selectValue={deploymentOptionSelected.deployment_id} 
         width={"250px"}/>
-      
-      {/* Need to add the price to the end of model*/}
-
       <Dropdown
         handleChange={handleSelectModel}
         idx={idx}
@@ -50,10 +47,11 @@ const SelectProduct = ({
         options={modelOptions}
         optionId="model_id"
         optionName="model_name" 
+        optionPrice="model_price"
         selectValue={modelSelected.model_id} 
         width={"250px"} />
     </div>
-  )
-}
+  );
+};
 
 export default SelectProduct;

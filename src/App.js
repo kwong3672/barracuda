@@ -6,7 +6,7 @@ import './App.css';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import OrderForm from './containers/OrderForm';
-import OrderConfirmation from './containers/OrderConfirmation';
+import ContactBilling from './containers/ContactBilling';
 import store from './store';
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
             </Header>
             <Navbar />
             <Route exact path="/" component={OrderForm} />
-            <Route path="/order_confirmation" component={OrderConfirmation} />
+            <Route path="/contact_billing" component={ContactBilling} />
           </div>
         </Router>
       </Provider>

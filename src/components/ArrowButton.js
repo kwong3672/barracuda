@@ -1,29 +1,29 @@
 import React from 'react';
 
 const ArrowButton = ({ color, isActive, label }) => {
-  color = isActive ? "#bbd0eb" : "#cfcece";
+  color = color || isActive ? "#bbd0eb" : "#cfcece";
   const style = {
     display: "inline-flex",
     left: {
-      width: 0, 
-      height: 0,
-      borderTop: "20px solid" + color,
       borderBottom: "20px solid" + color,
       borderLeft: "20px solid #fff",
+      borderTop: "20px solid" + color,
+      height: 0,
+      width: 0, 
     },
     middle: {
-      backgroundColor: color,
-      width: "175px",
-      display: "flex",
       alignItems: "center",
+      backgroundColor: color,
+      display: "flex",
       justifyContent: "center",
+      width: "175px",
     },
     right: {
-      width: 0, 
-      height: 0, 
-      borderTop: "20px solid #fff",
       borderBottom: "20px solid #fff",
       borderLeft: "20px solid" + color,
+      borderTop: "20px solid #fff",
+      height: 0, 
+      width: 0, 
     },
   }
 
@@ -34,6 +34,6 @@ const ArrowButton = ({ color, isActive, label }) => {
       <div style={style.right} />
     </div>
   );
-}
+};
 
 export default ArrowButton;

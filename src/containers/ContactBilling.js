@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../components/Button';
 import { connect } from 'react-redux';
-import Price from '../components/Price';
+
+import Button from '../components/Button';
 import BillingInfo from '../components/BillingInfo';
+import Price from '../components/Price';
 
-class OrderConfirmation extends Component {
+class ContactBilling extends Component {
   render() {
-
+    const style = {
+      border: "3px solid #78736d",
+      borderWidth: "3px 0",
+      padding: "20px 0",
+    }
     return (
       <div>
-        <div>
+        <div style={style}>
           {Object.keys(this.props.orders).map((key) => {
             return (
-            <div>
+            <div key={key}>
               <div>{this.props.orders[key].modelSelected.model_name}</div>
               <div>{this.props.orders[key].quantity}</div>
-              <Price label="Price" value={this.props.orders[key].quantity * this.props.orders[key].modelSelected.model_price} />
+              <Price value={this.props.orders[key].quantity * this.props.orders[key].modelSelected.model_price} />
             </div>
           )})}
         </div>
@@ -42,4 +47,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OrderConfirmation);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactBilling);

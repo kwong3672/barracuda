@@ -1,18 +1,18 @@
 import React from 'react';
 
 const Button = ({ 
-  idx,
   backgroundColor, 
-  color, 
-  padding, 
-  margin, 
-  label, 
-  borderRadius, 
   border, 
-  handleClick,
+  borderRadius, 
+  color, 
   disabled,
-  width,
+  font,
+  handleClick,
   height,
+  idx,
+  label, 
+  margin, 
+  width,
 }) => {
 
   const style = {
@@ -20,10 +20,13 @@ const Button = ({
     border: border || 0,
     borderRadius: borderRadius || "4px", 
     color: color || '#fff',
-    padding: padding || '10px 20px',
+    display: "flex",
+    fontSize: "16px",
     height: height || '30px',
-    width: width || '75px',
+    justifyContent: "center",
     margin: margin || 0,
+    padding: 0,
+    width: width || '75px',
   };
 
   return (
