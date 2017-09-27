@@ -25,7 +25,6 @@ const ProductSelection = ({
 }) => {
   
   const style = {
-    borderTop: "3px solid #78736d",
     borderBottom: "1px dashed #78736d",
     display: "inline-flex",
     flexWrap: "wrap",
