@@ -38,13 +38,15 @@ const Footer = ({ enableNextButton, handleAddProduct, totalOrderPrice }) => {
       </div>
       <div style={style.alignRight}>
         <Price 
-          display="inline-flex" 
+          display="inline-flex"
+          font="bold 24px helvetica"
+          labelFont="normal 24px helvetica" 
           label="Order Total:" 
           margin="20px 0"
           value={totalOrderPrice} /> 
         <Link style={style.link} to="/contact_billing" onClick={(e) => {
           if (!enableNextButton) {
-            alert('Please complete all fields before proceeding to checkout');
+            alert('Please complete all fields with valid values before proceeding to checkout');
             e.preventDefault();
           }}}>
           <Button 
@@ -54,7 +56,7 @@ const Footer = ({ enableNextButton, handleAddProduct, totalOrderPrice }) => {
             color="#fff"
             height="30px"
             label="Next Step: Contact & Billing ->"
-            padding="10px 5px"
+            margin="40px 0 0 0"
             width="260px" />
         </Link>
       </div>

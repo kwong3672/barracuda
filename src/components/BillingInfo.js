@@ -25,12 +25,12 @@ return (
       <Input label="Phone" />
     </div>
     <div style={style.col2}>
-      <Dropdown label="Country" options={['USA', 'Canada']}/>
+      <Dropdown label="Country" options={['USA', 'Canada']} display="inline-flex"/>
       <Input label="Street Address" />
       <Input label="City" />
-      <Dropdown label="State/Province" options={['California', 'Florida', 'New York']}/>
+      <Dropdown label="State/Province" options={['California', 'Florida', 'New York']} display="inline-flex"/>
       <Input label="Zip/Postal Code" />
-      <Dropdown label="Shipping Method" options={['Ground', 'Express', 'International']} />
+      <Dropdown label="Shipping Method" options={['Ground', 'Express', 'International']} display="inline-flex"/>
     </div>
   </div>
 )}

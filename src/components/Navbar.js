@@ -8,7 +8,7 @@ const Navbar = ({location}) => {
     alignItems: "center",
     display: "inline-flex",
     flexWrap: "wrap",
-    padding: "20px",
+    padding: "40px 0",
   }
 
   return (
