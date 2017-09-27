@@ -8,7 +8,7 @@
 
 .product-container {
   display: inline-flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   border-bottom-style: dashed;
   padding: 10px 0;
@@ -27,16 +27,18 @@
 }
 
 .product-container input {
-  width: 30px;
+  width: 60px;
   text-align: center;
 }
 
 .product-quantity-container {
   padding: 10px 50px 10px 0;
+  width: 100px;
 }
 
 .product-price-container {
   padding: 10px 50px 10px 0;
+  width: 100px;
 }
 
 
@@ -55,5 +57,22 @@
 .selection-header {
   padding: 10px 0;
   font-weight: bold;
+}
+
+.selection-id {
+  background-color: gray;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+.selection-id-container {
+  width: 30px;
+  margin-top: 20px;
 }
 

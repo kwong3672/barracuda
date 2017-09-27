@@ -78,12 +78,16 @@ class OrderForm extends Component {
     this.props.orderFormActions('ADD_PRODUCT', null);
   }
 
+  validateSelection() {
+    alert('you have clicked on the link')
+  }
+
 
   render() {
     const that = this;
     return (
       <div className="order-form">
-        {Object.keys(this.props.order).map((key) => {
+        {Object.keys(this.props.order).map((key, i) => {
           return <ProductSelection key={key} 
                           idx={key} 
                           data={data}
@@ -99,6 +103,7 @@ class OrderForm extends Component {
                           modelSelected={this.props.order[key].modelSelected}
                           quantity={this.props.order[key].quantity}
                           orderCount={this.props.orderCount}
+                          i={i}
                           />
         })}
         <Footer totalOrderPrice={Object.keys(this.props.order).reduce((acc, key) => {
@@ -106,7 +111,9 @@ class OrderForm extends Component {
             acc = acc + that.props.order[key].quantity * price;
             return acc;
         }, 0)}
-                handleAddProduct={this.handleAddProduct.bind(this)} />
+                handleAddProduct={this.handleAddProduct.bind(this)}
+                enableNextButton={this.props.enableNextButton}
+                validateSelection={this.validateSelection.bind(this)} />
       </div>
     )
   }
@@ -118,6 +125,7 @@ const mapStateToProps = (state) => {
     displayDeleteButton: state.orderForm.displayDeleteButton,
     totalOrderPrice: state.orderForm.totalOrderPrice,
     orderCount: state.orderForm.orderCount,
+    enableNextButton: state.orderForm.enableNextButton,
   }
 }
 

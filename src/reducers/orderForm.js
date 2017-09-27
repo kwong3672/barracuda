@@ -20,7 +20,17 @@ const initialState = {
   orderIdx: 1,
   orderCount: 1,
   totalOrderPrice: 0,
-  displayDeleteButton: false,
+  enableNextButton: false,
+}
+
+const enableNextButton = (state) => {
+  // debugger;
+  const enabled = Object.keys(state.order).reduce((enable, key) => {
+    const order = state.order[key];
+    return !isNaN(order.productSelected.product_id) && !isNaN(order.deploymentOptionSelected.deployment_id) && !isNaN(order.modelSelected.model_id) && enable && !!order.quantity
+  }, true)
+  console.log(enabled)
+  return enabled;
 }
 
 
@@ -30,6 +40,7 @@ const orderFormReducers = (state = initialState, action) => {
       const { idx, productSelected, deploymentOptions } = action.payload;
       return {
         ...state,
+        enableNextButton: false,
         order: {
           ...state.order,
           [idx]: {
@@ -38,12 +49,13 @@ const orderFormReducers = (state = initialState, action) => {
             deploymentOptions,
           }
         }
-      } 
+      }
     }
     case 'SELECT_DEPLOYMENT_OPTION': {
       const { idx, deploymentOptionSelected, modelOptions } = action.payload;
       return {
         ...state,
+        enableNextButton: false,
         order: {
           ...state.order,
           [idx]: {
@@ -52,15 +64,14 @@ const orderFormReducers = (state = initialState, action) => {
             modelOptions,
             modelSelected: {
               model_id: "Select",
-            }
+            },
           }
         }
-
-      } 
+      }
     }
     case 'SELECT_MODEL': {
       const { idx, modelSelected } = action.payload;
-      return {
+      let nextState = {
         ...state,
         order: {
           ...state.order,
@@ -70,43 +81,48 @@ const orderFormReducers = (state = initialState, action) => {
           }
         }                 
       }
+      nextState.enableNextButton = enableNextButton(nextState);
+      return nextState;
     }
     case 'CHANGE_QUANTITY': {
       const { idx, quantity } = action.payload
-      return {
+      let nextState = {
         ...state,
         order: {
           ...state.order,
-          [action.payload.idx]: {
+          [idx]: {
             ...state.order[idx],
-            quantity,
+            quantity: quantity,
           },
         },
-      }  
+      }
+      nextState.enableNextButton = enableNextButton(nextState);
+      return nextState;
     }
-    case 'DELETE_PRODUCT':
-      let newState = {
+    case 'DELETE_PRODUCT': {
+      let nextState = {
         ...state,
         order: {
           ...state.order,
-          // [action.payload]: null,
         },
         orderCount: state.orderCount - 1,
-        displayDeleteButton: state.orderCount > 1,
       }
-      delete newState.order[action.payload];
-      return newState;    
-    case 'ADD_PRODUCT':
+      delete nextState.order[action.payload];
+      nextState.enableNextButton = enableNextButton(nextState);
+      return nextState;  
+    }  
+    case 'ADD_PRODUCT': {
       return {
         ...state,
+        enableNextButton: false,
         order: {
           ...state.order,
           [state.orderIdx]: {...orderTemplate},
         },
         orderIdx: state.orderIdx + 1,
         orderCount: state.orderCount + 1,
-        // displayDeleteButton: state.orderCount > 1,
       }
+    }
     default:
       return state;
   }

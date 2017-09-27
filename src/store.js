@@ -8,12 +8,11 @@ const rootReducer = combineReducers({
   orderForm
 });
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
   rootReducer,
-  compose(
-    applyMiddleware(logger, promise()),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+  composeEnhancers(applyMiddleware(promise(), logger))
 );
 
 export default store;
